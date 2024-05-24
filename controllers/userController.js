@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
-const newsApi = require('../utils/newsApi');
+const newsApi = require('./utils/newsApi');
 
 // In-memory data store
 let users = [];
