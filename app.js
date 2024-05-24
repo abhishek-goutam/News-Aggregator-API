@@ -1,21 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const userRoutes = require('./routes/userRoutes');
+
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Middleware
+app.use(bodyParser.json());
 
-app.post('/news',)
+// Routes
+app.use('/users', userRoutes);
 
-
-
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('Something bad happened', err);
-    }
-    console.log(`Server is listening on ${port}`);
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-
-
-module.exports = app;
