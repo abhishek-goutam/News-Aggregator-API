@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
-const newsApi = require('./utils/newsApi');
+const newsApi = require('../utils/newsApi');
 
 // In-memory data store
 let users = [];
@@ -18,7 +18,7 @@ const register = async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
   users.push({ username, password: hashedPassword });
-  res.status(201).json({ message: 'User registered successfully' });
+  res.status(200).json({ message: 'User registered successfully' });
 };
 
 const login = async (req, res) => {
